@@ -45,7 +45,9 @@ export default function PaymentPage() {
           <img src="/icons/logo.svg" alt="logo" className="h-8 w-8" />
           <span className="text-sm text-gray-600"></span>
         </div>
-
+        <div>
+          <img src="/icons/bitcoin.jpg" alt="logo" className="h-8 w-8" />
+        </div>
         {/* Instructions */}
         <div className="text-sm bg-yellow-100 border-l-4 border-yellow-400 p-3 rounded">
           For a seamless transaction, please transfer the exact amount displayed. Payments may be declined if the amount does not match.
@@ -53,15 +55,15 @@ export default function PaymentPage() {
 
         {/* Bank Info */}
         <div className="space-y-3">
-          <InfoBlock label="Amount" value="$25,000" field="amount" onCopy={handleCopy} copied={copiedField === 'amount'} />
-          <InfoBlock label="Account Number" value="86356995922" field="account" onCopy={handleCopy} copied={copiedField === 'account'} />
-          <InfoBlock label="Bank Name" value="Cashapp" />
+          {/* <InfoBlock label="Amount" value="$25,000" field="amount" onCopy={handleCopy} copied={copiedField === 'amount'} /> */}
+          <InfoBlock label="Wallet Address" value="bc1qthdppqhn4aq02pwury5mpnx7fmxcqx0ue4c5lf" field="account" onCopy={handleCopy} copied={copiedField === 'account'} />
+          <InfoBlock label="Payment Method" value="Bitcoin" />
           <InfoBlock label="Beneficiary" value="Horizon" />
         </div>
 
         {/* Expiry */}
         <div className="text-sm bg-gray-100 p-3 rounded">
-          This account detail will expire after <span className="font-semibold">48hrs</span> and can only be used for this transaction.
+          This account detail will expire after <span className="font-semibold">24hrs</span> and can only be used for this transaction.
         </div>
 
         {/* Confirm Button */}
@@ -69,11 +71,13 @@ export default function PaymentPage() {
           id="confirmButton"
           className="bg-blue-500 hover:bg-orange-600 text-white w-full py-3 rounded font-semibold"
         >
-          Confirm Payment for this bank transfer
+          Confirm Payment for this Wallet
         </button>
 
         <div className="text-center mt-2">
-          <button className="text-sm text-gray-600 hover:underline">Change payment method</button>
+          <link href='https://horizon-banking.ct.ws/'>
+           <button className="text-sm text-gray-600 hover:underline">Change payment method</button>
+          </link>
         </div>
       </div>
     </div>
