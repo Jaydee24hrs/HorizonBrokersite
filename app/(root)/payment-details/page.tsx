@@ -46,7 +46,7 @@ export default function PaymentPage() {
 
           {/* BIG centered QR code */}
           <img
-            src="/icons/bitcoin.png"
+            src="/icons/bitcoin.jpg"
             alt="bitcoin-qr"
             className="h-44 w-44 object-contain rounded-md shadow-sm"
           />
