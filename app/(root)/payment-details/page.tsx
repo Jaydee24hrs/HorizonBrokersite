@@ -75,9 +75,9 @@ export default function PaymentPage() {
         </button>
 
         <div className="text-center mt-2">
-          <link href='https://horizon-banking.ct.ws/'>
+          {/* <Link href='https://horizon-banking.ct.ws/'> */}
            <button className="text-sm text-gray-600 hover:underline">Change payment method</button>
-          </link>
+          {/* </Link> */}
         </div>
       </div>
     </div>
