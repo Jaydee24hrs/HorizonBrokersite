@@ -39,17 +39,22 @@ export default function PaymentPage() {
   return (
     <div className="min-h-screen bg-white p-4 md:p-8 flex flex-col items-center justify-center">
       <div className="w-full max-w-md space-y-4 border rounded-xl shadow p-6 sm:p-8">
-        
-        <div className="flex items-center gap-3">
-          <img src="/icons/logo.svg" alt="logo" className="h-8 w-8" />
-        </div>
 
-        <div>
-          <img src="/icons/bitcoin.jpg" alt="logo" className="h-8 w-8" />
+        {/* QR + Logo Section UPDATED */}
+        <div className="flex flex-col items-center gap-3 mt-2">
+          <img src="/icons/logo.svg" alt="logo" className="h-10 w-10" />
+
+          {/* BIG centered QR code */}
+          <img
+            src="/icons/qr.png"
+            alt="bitcoin-qr"
+            className="h-44 w-44 object-contain rounded-md shadow-sm"
+          />
         </div>
 
         <div className="text-sm bg-yellow-100 border-l-4 border-yellow-400 p-3 rounded">
-          For a seamless transaction, please transfer the exact amount displayed. Payments may be declined if the amount does not match.
+          For a seamless transaction, please transfer the exact amount displayed.
+          Payments may be declined if the amount does not match.
         </div>
 
         <div className="space-y-3">
@@ -60,7 +65,6 @@ export default function PaymentPage() {
             onCopy={handleCopy} 
             copied={copiedField === 'account'} 
           />
-
           <InfoBlock label="Payment Method" value="Bitcoin" />
           <InfoBlock label="Beneficiary" value="Horizon" />
         </div>
