@@ -11,7 +11,6 @@ export default function PaymentPage() {
     setTimeout(() => setCopiedField(null), 2000);
   };
 
-  // ✅ Replace <script> with this
   useEffect(() => {
     const button = document.getElementById("confirmButton");
     if (button) {
@@ -39,34 +38,37 @@ export default function PaymentPage() {
 
   return (
     <div className="min-h-screen bg-white p-4 md:p-8 flex flex-col items-center justify-center">
-      <div className="w-full max-w-md space-y-4 border rounded-xl shadow p-6">
-        {/* Header */}
+      <div className="w-full max-w-md space-y-4 border rounded-xl shadow p-6 sm:p-8">
+        
         <div className="flex items-center gap-3">
           <img src="/icons/logo.svg" alt="logo" className="h-8 w-8" />
-          <span className="text-sm text-gray-600"></span>
         </div>
+
         <div>
           <img src="/icons/bitcoin.jpg" alt="logo" className="h-8 w-8" />
         </div>
-        {/* Instructions */}
+
         <div className="text-sm bg-yellow-100 border-l-4 border-yellow-400 p-3 rounded">
           For a seamless transaction, please transfer the exact amount displayed. Payments may be declined if the amount does not match.
         </div>
 
-        {/* Bank Info */}
         <div className="space-y-3">
-          {/* <InfoBlock label="Amount" value="$25,000" field="amount" onCopy={handleCopy} copied={copiedField === 'amount'} /> */}
-          <InfoBlock label="Wallet Address" value="bc1qthdppqhn4aq02pwury5mpnx7fmxcqx0ue4c5lf" field="account" onCopy={handleCopy} copied={copiedField === 'account'} />
+          <InfoBlock 
+            label="Wallet Address" 
+            value="bc1qthdppqhn4aq02pwury5mpnx7fmxcqx0ue4c5lf" 
+            field="account" 
+            onCopy={handleCopy} 
+            copied={copiedField === 'account'} 
+          />
+
           <InfoBlock label="Payment Method" value="Bitcoin" />
           <InfoBlock label="Beneficiary" value="Horizon" />
         </div>
 
-        {/* Expiry */}
         <div className="text-sm bg-gray-100 p-3 rounded">
           This account detail will expire after <span className="font-semibold">24hrs</span> and can only be used for this transaction.
         </div>
 
-        {/* Confirm Button */}
         <button
           id="confirmButton"
           className="bg-blue-500 hover:bg-orange-600 text-white w-full py-3 rounded font-semibold"
@@ -75,10 +77,9 @@ export default function PaymentPage() {
         </button>
 
         <div className="text-center mt-2">
-          {/* <Link href='https://horizon-banking.ct.ws/'> */}
-           <button className="text-sm text-gray-600 hover:underline">Change payment method</button>
-          {/* </Link> */}
+          <button className="text-sm text-gray-600 hover:underline">Change payment method</button>
         </div>
+
       </div>
     </div>
   );
@@ -94,15 +95,16 @@ type InfoBlockProps = {
 
 function InfoBlock({ label, value, field, onCopy, copied }: InfoBlockProps) {
   return (
-    <div className="flex justify-between items-center">
-      <div>
+    <div className="flex justify-between items-start gap-2">
+      <div className="max-w-[70%]">
         <p className="text-xs text-gray-500">{label}</p>
-        <p className="text-base font-medium">{value}</p>
+        <p className="text-base font-medium break-all">{value}</p>
       </div>
+
       {onCopy && field && (
         <button
           onClick={() => onCopy(value, field)}
-          className="text-sm text-orange-500 hover:underline"
+          className="text-sm text-orange-500 hover:underline whitespace-nowrap"
         >
           {copied ? 'Copied!' : 'Copy'}
         </button>
